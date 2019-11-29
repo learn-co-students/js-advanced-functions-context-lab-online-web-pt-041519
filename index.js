@@ -1,4 +1,58 @@
 /* Your Code Here */
+const createEmployeeRecord = (empArry) => {
+    return {
+      firstName: empArry[0],
+      familyName: empArry[1],
+      title: empArry[2],
+      payPerHour: empArry[3],
+      timeInEvents: [],
+      timeOutEvents: []
+    }
+  }
+
+  const createEmployeeRecords = (empArry) => {
+    return empArry.map(emp => createEmployeeRecord(emp))
+  }
+
+  let createTimeInEvent = function(dateRec){
+    let [date, hour] = dateRec.split(' ')
+    this.timeInEvents.push({
+        type: "TimeIn",
+        hour: parseInt(hour),
+        date:  date
+    })
+    return this
+  }
+  
+  const createTimeOutEvent = function(dateRec){
+    let [date, hour] = dateRec.split(' ')
+    this.timeOutEvents.push({
+        type: "TimeOut",
+        hour: parseInt(hour),
+        date:  date
+    })
+    return this
+  }
+  
+  const hoursWorkedOnDate = function(dateRec) {
+    let timeIn = this.timeInEvents.find(hours => hours.date === dateRec)
+    let timeOut = this.timeOutEvents.find(hours => hours.date === dateRec)
+    return (timeOut.hour - timeIn.hour) / 100
+  }
+  
+  const wagesEarnedOnDate = function(dateRec){
+    return hoursWorkedOnDate.call(this, dateRec) * this.payPerHour 
+  }
+  
+  
+  const calculatePayroll = function(empArry) {
+    let reducer = (total, empRec) => allWagesFor.call(empRec) + total
+    return empArry.reduce(reducer, 0)
+  }
+  
+  const findEmployeeByFirstName = (srcArray, firstName) => {
+    return srcArray.find(emp => emp.firstName === firstName)
+  }
 
 /*
  We're giving you this function. Take a look at it, you might see some usage
