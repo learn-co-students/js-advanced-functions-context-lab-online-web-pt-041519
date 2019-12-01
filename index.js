@@ -1,13 +1,17 @@
-/* Your Code Here */
+class createEmployee {  
+    constructor(array) {
+        this.firstName = array[0],
+        this.familyName = array[1], 
+        this.title = array[2],
+        this.payPerHour = array[3],
+        this.timeInEvents = [],
+        this.timeOutEvents=  []
+    }
+}
 
-/*
- We're giving you this function. Take a look at it, you might see some usage
- that's new and different. That's because we're avoiding a well-known, but
- sneaky bug that we'll cover in the next few lessons!
-
- As a result, the lessons for this function will pass *and* it will be available
- for you to use if you need it!
- */
+let createEmployeeRecord = function(array){
+    new createEmployee(array);
+}
 
 let allWagesFor = function () {
     let eligibleDates = this.timeInEvents.map(function (e) {
