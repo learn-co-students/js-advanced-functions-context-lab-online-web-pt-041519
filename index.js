@@ -84,10 +84,7 @@ function findEmployeeByFirstName(employeeRecords, name) {
 // Returns the sum of all employees wages for all dates as a number
 // use #wagesEarnedOnDate for every employee, for every date.
 function calculatePayroll(employeeRecords) {
-    // console.log(employeeRecords[0])
-    // console.log(allWagesFor.call(employeeRecords[0]));
     return employeeRecords.reduce(function(totalPay, employee) {
-        // console.log(allWagesFor.call(employee)
         return totalPay + allWagesFor.call(employee)
     }, 0)
 }
